@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cisl6l1oie74g"]
+
+[ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
+[ext_resource type="PackedScene" uid="uid://bqhnd3f3j4a3v" path="res://assets/mesh/aiplane.fbx" id="3_uks7k"]
+[ext_resource type="Texture2D" uid="uid://dgpnjwhuchx3u" path="res://assets/Tiles/BlackTiles/Tiles052_1K-JPG_Color.jpg" id="5_6l3kb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc4so"]
+albedo_texture = ExtResource("5_6l3kb")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0276425, 0.999618, 0, -0.999618, -0.0276425, 0, 5.95579, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59.0661)
+size = Vector3(83.9936, 0.158752, 139.019)
+material = SubResource("StandardMaterial3D_gc4so")
+
+[node name="Plane" parent="." instance=ExtResource("1_6xi6h")]
+transform = Transform3D(0.999841, 0, 0.0178538, 0, 1, 0, -0.0178538, 0, 0.999841, 0, 0, 0.036)
+
+[node name="Camera3D" type="Camera3D" parent="Plane"]
+transform = Transform3D(-0.984808, 0.0301537, -0.17101, 0, 0.984808, 0.173648, 0.173648, 0.17101, -0.969846, 0, 2.04227, -3.51269)
+
+[node name="msh_avion_03" parent="." instance=ExtResource("3_uks7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.37619, 0, 31.3372)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cisl6l1oie74g"]
+
+[ext_resource type="Script" path="res://CamScript.gd" id="1_6d8c7"]
+[ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://plane.tscn" id="1_6xi6h"]
+[ext_resource type="Script" path="res://assets/Scripts/PlaneController.gd" id="2_616gl"]
+[ext_resource type="PackedScene" uid="uid://bqhnd3f3j4a3v" path="res://msh_avion_02.fbx" id="3_uks7k"]
+[ext_resource type="Texture2D" uid="uid://dgpnjwhuchx3u" path="res://assets/Tiles/BlackTiles/Tiles052_1K-JPG_Color.jpg" id="5_6l3kb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc4so"]
+albedo_texture = ExtResource("5_6l3kb")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.99944, -4.654e-10, -0.0334691, -0.00490372, 0.989209, 0.146433, 0.0331079, 0.146515, -0.988654, 0, 1.69622, -4.22448)
+script = ExtResource("1_6d8c7")
+character = null
+
+[node name="Plane" parent="." instance=ExtResource("1_6xi6h")]
+script = ExtResource("2_616gl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0276425, 0.999618, 0, -0.999618, -0.0276425, 0, 5.95579, 0)
+
+[node name="msh_avion_02" parent="." instance=ExtResource("3_uks7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86448, 1.59908, 20.2004)
+
+[node name="msh_avion_03" parent="." instance=ExtResource("3_uks7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90753, 0, 3.49414)
+
+[node name="msh_avion_03" parent="msh_avion_03" instance=ExtResource("3_uks7k")]
+transform = Transform3D(1, -1.74533e-05, 0, 1.74533e-05, 1, 0, 0, 0, 1, -10.3644, 0, 50.3128)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94258, -0.215118, 17.6686)
+size = Vector3(42.5436, 0.158752, 36.3365)
+material = SubResource("StandardMaterial3D_gc4so")
