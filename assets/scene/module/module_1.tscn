@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxednrncto5dg"]
+
+[ext_resource type="Script" path="res://assets/scene/module/module.gd" id="1_8ew2b"]
+[ext_resource type="ArrayMesh" uid="uid://cngnp8mtuykxf" path="res://assets/object/msh_cloud_A_01.obj" id="2_n1njh"]
+[ext_resource type="Texture2D" uid="uid://dobi8jp6rsj07" path="res://assets/materials/Dark/texture_01.png" id="3_eqqkv"]
+[ext_resource type="Texture2D" uid="uid://dgpnjwhuchx3u" path="res://assets/materials/BlackTiles/Tiles052_1K-JPG_Color.jpg" id="4_bgdjk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tfef"]
+albedo_texture = ExtResource("3_eqqkv")
+uv1_scale = Vector3(6, 6, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1c0p"]
+albedo_texture = ExtResource("4_bgdjk")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_8ew2b")
+
+[node name="MshCloudA01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430871, 0)
+mesh = ExtResource("2_n1njh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_1tfef")
+size = Vector3(10, 0.159, 10)
+material = SubResource("StandardMaterial3D_c1c0p")
