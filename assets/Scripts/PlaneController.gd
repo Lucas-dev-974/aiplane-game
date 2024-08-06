@@ -1,52 +1,3 @@
-#extends CharacterBody3D
-#
-## Vitesse d'avancement automatique
-#@export var speed : float = 5.0
-#
-## Vitesse de déplacement latéral
-#@export var lateral_speed : float = 1.0
-#
-## Vitesse de rotation
-#@export var rotation_speed : float = 1.0
-#
-#var cols = [-5, 0, 5]
-#var col_index = 1
-#
-#func _ready():
-	## Initialisation si nécessaire
-	#pass
-#
-#func _physics_process(delta):
-	## Définir la àvitesse de déplacement vers l'avant
-	#velocity.z = speed
-	## Déplacement vers la gauche (négatif sur l'axe X)
-	#if Input.is_key_pressed(KEY_Q):
-		#if col_index == 0:
-			#col_index = 1
-		#elif col_index == 1:
-			#col_index = 2
-		#else:
-			#print("il n'est pas possible de tourner dans cet direction")
-		#
-		#position.x = cols[col_index]
-		###rotation.z += rotation_speed * delta
-		##velocity.x += lateral_speed
-	#
-	#if Input.is_key_pressed(KEY_D):
-		#if col_index == 1:
-			#col_index = 0
-		#elif col_index == 2:
-			#col_index = 1
-		#else:
-			#print("il n'est pas possible de tourner dans cet direction")
-		#position.x = cols[col_index]
-		##rotation.z -= rotation_speed * delta
-		##velocity.x -= lateral_speed
-#
-	## Appliquer le déplacement en utilisant move_and_slide
-	#move_and_slide()
-
-
 extends CharacterBody3D
 
 # Vitesse de déplacement automatique
@@ -64,31 +15,47 @@ extends CharacterBody3D
 # Index de la colonne actuelle
 var current_column_index : int = 0
 
+func update_velocity() -> void:
+	# Remettre à zéro la vélocité sur l'axe X
+	velocity.z = 0
+	
+	# Vérifier les entrées utilisateur pour les mouvements gauche/droite
+	if Input.is_action_pressed("ui_left"):
+		print("ui left ok")
+		velocity.z -= 1
+	if Input.is_action_pressed("ui_right"):
+		print("ui right ok")
+		velocity.z += 1
+	
+	# Normaliser le vecteur pour s'assurer d'une vitesse constante
+	velocity = velocity.normalized()
+	
+	
 func _ready():
 	# Initialiser la colonne actuelle en fonction de la position initiale
-	current_column_index = get_closest_column_index(global_transform.origin.x)
+	current_column_index = get_closest_column_index(global_transform.origin.z)
 	print("current col index:", current_column_index)
 	snap_to_column()
 
 func _physics_process(delta):
 	# Déplacement automatique vers l'avant
-	velocity.z = forward_speed
+	#velocity.z = forward_speed
 
 	# Gestion des déplacements de colonne avec les touches
 	if Input.is_action_just_pressed("ui_right"):
-		print("ok right pressed")
-		move_column(-1)
-	elif Input.is_action_just_pressed("ui_left"):
-		print("ok left pressed")
+		#print("ok right pressed")
 		move_column(1)
+	elif Input.is_action_just_pressed("ui_left"):
+		#print("ok left pressed")
+		move_column(-1)
 
 	# Appliquer le déplacement
 	move_and_slide()
 	
 	# Déplacement vers la colonne cible
-	if global_transform.origin.x != columns[current_column_index]:
+	if global_transform.origin.z != columns[current_column_index]:
 		var target_position = columns[current_column_index]
-		global_transform.origin.x = lerp(global_transform.origin.x, target_position, column_change_speed * delta)
+		global_transform.origin.z = lerp(global_transform.origin.z, target_position, column_change_speed * delta)
 
 func move_column(direction: int):
 	# Calculer le nouvel index de colonne
@@ -97,10 +64,15 @@ func move_column(direction: int):
 	# Assurer que la colonne cible est alignée correctement
 	snap_to_column()
 
+var vel: Vector3 = Vector3.ZERO
 func snap_to_column():
 	# Mettre à jour la position de l'avion pour se trouver sur la colonne actuelle
-	global_transform.origin.x = columns[current_column_index]
-
+	global_transform.origin.z = columns[current_column_index]
+	# Mettre à jour la direction du mouvement
+	update_velocity()
+	# Appliquer le mouvement en fonction de la vitesse
+	move_and_slide()
+	
 func get_closest_column_index(x: float) -> int:
 	# Trouver l'indice de la colonne la plus proche
 	var closest_index : int = 0
