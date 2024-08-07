@@ -13,7 +13,6 @@ config_version=5
 config/name="airplane-game"
 run/main_scene="res://assets/scene/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [input]
 

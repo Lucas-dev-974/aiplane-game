@@ -21,10 +21,8 @@ func update_velocity() -> void:
 	
 	# Vérifier les entrées utilisateur pour les mouvements gauche/droite
 	if Input.is_action_pressed("ui_left"):
-		print("ui left ok")
 		velocity.z -= 1
 	if Input.is_action_pressed("ui_right"):
-		print("ui right ok")
 		velocity.z += 1
 	
 	# Normaliser le vecteur pour s'assurer d'une vitesse constante
@@ -34,7 +32,6 @@ func update_velocity() -> void:
 func _ready():
 	# Initialiser la colonne actuelle en fonction de la position initiale
 	current_column_index = get_closest_column_index(global_transform.origin.z)
-	print("current col index:", current_column_index)
 	snap_to_column()
 
 func _physics_process(delta):

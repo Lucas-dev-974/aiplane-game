@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bequugkc2akh6"]
 
 [ext_resource type="Texture2D" uid="uid://cif4njsylpgt8" path="res://assets/Mock_Up_Game_Over.webp" id="1_5hbf5"]
-[ext_resource type="Script" path="res://assets/scene/end_scene.gd" id="1_wk37l"]
+[ext_resource type="Script" path="res://assets/Scripts/end_scene.gd" id="1_wk37l"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

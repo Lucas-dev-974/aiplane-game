@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1tx2qxgmqm14"]
 
-[ext_resource type="Script" path="res://assets/scene/module/module_bonus.gd" id="1_rccu5"]
+[ext_resource type="Script" path="res://assets/Scripts/module_bonus.gd" id="1_rccu5"]
 [ext_resource type="ArrayMesh" uid="uid://b2pt42hjlkluq" path="res://assets/object/msh_bonus_01.obj" id="2_svvqs"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d04yn"]
