@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkwo6ioj5p6qg"]
 
-[ext_resource type="Script" path="res://assets/scene/module/module.gd" id="1_n46ng"]
+[ext_resource type="Script" path="res://assets/Scripts/module.gd" id="1_n46ng"]
 
 [node name="ModuleMain" type="Area3D"]
 script = ExtResource("1_n46ng")
