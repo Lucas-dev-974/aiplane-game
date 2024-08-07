@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cisl6l1oie74g"]
+
+[ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
+[ext_resource type="PackedScene" uid="uid://pc3d3kfd478e" path="res://assets/scene/module/module_1e.tscn" id="3_oxc0g"]
+[ext_resource type="PackedScene" uid="uid://bhjw6ng0bv5qm" path="res://assets/scene/module/module_2e.tscn" id="4_0f72y"]
+[ext_resource type="Script" path="res://assets/scene/level.gd" id="4_fi6ty"]
+[ext_resource type="PackedScene" uid="uid://chiauv4ph27vk" path="res://assets/scene/hud.tscn" id="5_inick"]
+
+[sub_resource type="GDScript" id="GDScript_lmrke"]
+script/source = "extends Node3D
+@onready var level = $\"..\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_lmrke")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0276425, 0.999618, 0, -0.999618, -0.0276425, 0, 48.1287, 0)
+
+[node name="Plane" parent="." instance=ExtResource("1_6xi6h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 0.116)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.33145e-08, 0.304481, -0.952518, 5.87714e-09, 0.952518, 0.304481, 1, 7.59039e-09, -4.30473e-08, -19.2145, 2.69024, 0)
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("4_fi6ty")
+module = Array[PackedScene]([ExtResource("3_oxc0g"), ExtResource("4_0f72y")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_inick")]

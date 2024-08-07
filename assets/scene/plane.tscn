@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://assets/Scripts/PlaneController.gd" id="1_td6ec"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2if7"]
-height = 9.50788
+height = 4.92718
+radius = 0.466995
 
 [node name="Plane" type="CharacterBody3D"]
 script = ExtResource("1_td6ec")
@@ -12,5 +13,5 @@ script = ExtResource("1_td6ec")
 [node name="msh_avion_02" parent="." instance=ExtResource("1_6afjt")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.0065361, 0.499957, 0, -0.499957, 0.0065361, 0, 0.321742, 0)
+transform = Transform3D(5.425, 0, 0, 0, 0.0130722, 0.999915, 0, -0.999915, 0.0130722, 0, 0.321742, 0)
 shape = SubResource("CylinderShape3D_w2if7")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://chiauv4ph27vk"]
+
+[ext_resource type="Script" path="res://assets/scene/hud.gd" id="1_54dsm"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54dsm")
+
+[node name="LabelScore" type="Label" parent="."]
+offset_top = -2.0
+offset_right = 52.0
+offset_bottom = 24.0
+text = "Score: "
+
+[node name="Score" type="Label" parent="LabelScore"]
+offset_left = 54.0
+offset_top = 1.0
+offset_right = 122.0
+offset_bottom = 27.0
+text = "0
+"
+
+[node name="LabelFuel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 46.0
+offset_right = 51.0
+offset_bottom = 72.0
+text = "Fuel: "
+
+[node name="Fuel" type="Label" parent="LabelFuel"]
+offset_left = 54.0
+offset_top = 2.0
+offset_right = 122.0
+offset_bottom = 28.0
+text = "0
+"
+
+[connection signal="ready" from="LabelScore/Score" to="." method="_on_label_score_value_2_ready"]
