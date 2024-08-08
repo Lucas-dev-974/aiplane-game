@@ -66,4 +66,5 @@ flat = true
 alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/Jouer" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Crédits" to="." method="_on_crédits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

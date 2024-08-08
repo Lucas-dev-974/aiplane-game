@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jnuewlbtp5xb"
+path="res://.godot/imported/msh_cloud_A_04.obj-5f4449652e0d381618209cfa8e8ffda2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/msh_cloud_A_04.obj-5f4449652e0d381618209cfa8e8ffda2.mesh"]
+
+source_file="res://assets/object/msh_cloud_A_04.obj"
+dest_files=["res://.godot/imported/msh_cloud_A_04.obj-5f4449652e0d381618209cfa8e8ffda2.mesh", "res://.godot/imported/msh_cloud_A_04.obj-5f4449652e0d381618209cfa8e8ffda2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

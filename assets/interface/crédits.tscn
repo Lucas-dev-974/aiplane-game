@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ql7d2oakpfwi"]
+[gd_scene load_steps=4 format=3 uid="uid://ql7d2oakpfwi"]
 
 [ext_resource type="Texture2D" uid="uid://fye8681xpx6d" path="res://assets/mockup/Mock_Up_Credit_02.png" id="1_ftex8"]
+[ext_resource type="Script" path="res://assets/Scripts/crédits.gd" id="1_wlp0l"]
 [ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="2_ki50x"]
 
 [node name="Crédits" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wlp0l")
 
 [node name="MockUpCredit02" type="Sprite2D" parent="."]
 position = Vector2(576.111, 323.75)
@@ -43,3 +45,5 @@ text = "Retour
 "
 flat = true
 alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Retour" to="." method="_on_retour_pressed"]

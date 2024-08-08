@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://chiauv4ph27vk"]
+[gd_scene load_steps=4 format=3 uid="uid://chiauv4ph27vk"]
 
 [ext_resource type="Script" path="res://assets/Scripts/hud.gd" id="1_54dsm"]
+[ext_resource type="Texture2D" uid="uid://cf70h7w8raedc" path="res://assets/mockup/spr_cadran_fuel.webp" id="2_woj6e"]
+[ext_resource type="Texture2D" uid="uid://lu40eoia030p" path="res://assets/mockup/spr_aiguille_fuel (1).webp" id="3_3c3qc"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,12 +14,14 @@ grow_vertical = 2
 script = ExtResource("1_54dsm")
 
 [node name="LabelScore" type="Label" parent="."]
+layout_mode = 0
 offset_top = -2.0
 offset_right = 52.0
 offset_bottom = 24.0
 text = "Score: "
 
 [node name="Score" type="Label" parent="LabelScore"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 1.0
 offset_right = 122.0
@@ -34,11 +38,26 @@ offset_bottom = 72.0
 text = "Fuel: "
 
 [node name="Fuel" type="Label" parent="LabelFuel"]
+layout_mode = 0
 offset_left = 54.0
 offset_top = 2.0
 offset_right = 122.0
 offset_bottom = 28.0
 text = "0
 "
+
+[node name="SprCadranFuel" type="Sprite2D" parent="."]
+position = Vector2(1068, 574)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_woj6e")
+
+[node name="Aiguille" type="Node2D" parent="."]
+position = Vector2(1067, 607)
+rotation = 0.685914
+
+[node name="SprAiguilleFuel(1)" type="Sprite2D" parent="Aiguille"]
+position = Vector2(0.102794, -34.1319)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_3c3qc")
 
 [connection signal="ready" from="LabelScore/Score" to="." method="_on_label_score_value_2_ready"]

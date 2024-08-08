@@ -9,15 +9,13 @@ var move_speed = 20
 var amount = 10
 var offset = 25
 var fuel = 4
-var score = 0
-
 var rng = RandomNumberGenerator.new()
 
 var timer: Timer = null
 
 func on_timer_timeout():
 	if move_speed != 0:
-		score +=  fuel
+		Global.score +=  fuel
 
 func initiate_score_timer():
 	timer = Timer.new()
@@ -29,6 +27,8 @@ func initiate_score_timer():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.score = 0
+	
 	initiate_score_timer()
 	hud_instance = hud_scene.instantiate()
 	add_child(timer)
@@ -56,9 +56,9 @@ var palier: int = 500
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if fuel == 0:
-		get_tree().change_scene_to_file("res://assets/scene/end_scene.tscn")
+		get_tree().change_scene_to_file("res://assets/interface/end_scene.tscn")
 		return
-	if score >= palier:
+	if Global.score >= palier:
 		move_speed += 10
 		palier += 500
 
