@@ -9,9 +9,10 @@ radius = 0.274049
 
 [node name="Plane" type="CharacterBody3D"]
 script = ExtResource("1_td6ec")
-target_rotation_left = Vector3(0, 0, 10)
-target_rotation_right = Vector3(0, 0, -10)
-duration = 0.5
+forward_speed = null
+vertical_speed = null
+columns = null
+column_change_speed = null
 
 [node name="Airplane" parent="." instance=ExtResource("1_6afjt")]
 

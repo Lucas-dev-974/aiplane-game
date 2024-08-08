@@ -5,13 +5,10 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_w2if7"]
 height = 4.92718
-radius = 0.274049
+radius = 0.466995
 
 [node name="Plane" type="CharacterBody3D"]
 script = ExtResource("1_td6ec")
-target_rotation_left = Vector3(0, 0, 10)
-target_rotation_right = Vector3(0, 0, -10)
-duration = 0.5
 
 [node name="Airplane" parent="." instance=ExtResource("1_6afjt")]
 

@@ -1,85 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://cisl6l1oie74g"]
 
+[ext_resource type="Script" path="res://assets/Scripts/level.gd" id="1_6m6qf"]
 [ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
 [ext_resource type="PackedScene" uid="uid://c1tx2qxgmqm14" path="res://assets/scene/module/module_bonus.tscn" id="3_7e6d8"]
 [ext_resource type="PackedScene" uid="uid://pc3d3kfd478e" path="res://assets/scene/module/module_1e.tscn" id="3_oxc0g"]
 [ext_resource type="PackedScene" uid="uid://bhjw6ng0bv5qm" path="res://assets/scene/module/module_2e.tscn" id="4_0f72y"]
 [ext_resource type="PackedScene" uid="uid://chiauv4ph27vk" path="res://assets/scene/hud.tscn" id="5_inick"]
 
-[sub_resource type="GDScript" id="GDScript_lmrke"]
-script/source = "extends Node3D
-
-
-@export var module: Array[PackedScene] = [] 
-@export var hud_scene: PackedScene
-var hud_instance: Node = null
-
-var move_speed = 30
-var amount = 10
-var wave = 0
-var offset = 20
-var fuel = 4
-var score = 0
-
-var rng = RandomNumberGenerator.new()
-
-var timer: Timer = null
-
-func on_timer_timeout():
-	print(\"Le timer a déclenché\")
-	score +=  fuel
-	# Ajoutez ici la logique que vous souhaitez exécuter périodiquement
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = 0.1 # Temps en secondes entre chaque déclenchement
-	timer.autostart = true # Démarre automatiquement le timer
-	timer.one_shot = false # Répéter à l'infini
-	timer.start()
-	timer.timeout.connect(on_timer_timeout)
-	hud_instance = hud_scene.instantiate()
-	add_child(hud_instance)
-	
-	for n in amount:
-		spawnModule(n * offset)	
-
-
-var palier: int = 500
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if fuel == 0:
-		get_tree().change_scene_to_file(\"res://assets/scene/end_scene.tscn\")
-		return
-	if score >= palier:
-		move_speed += 30
-		palier += 500
-
-func listened_percution():
-	fuel -= 1
-	print(\"percuted cloud, fuel at:\", fuel)
-	
-func listened_percution_bonus():
-	if fuel < 4:
-		fuel += 1
-	
-func spawnModule(n):
-	if fuel == 0:
-		return
-		
-	rng.randomize()
-	var num = rng.randi_range(0, module.size() - 1)
-	var instance = module[num].instantiate()
-	instance.connect(\"on_percuted_cloud\", listened_percution)
-	instance.connect(\"on_percuted_bonus\", listened_percution_bonus)
-	instance.position.x = n
-	add_child(instance)
-"
-
 [node name="Node3D" type="Node3D"]
-script = SubResource("GDScript_lmrke")
+script = ExtResource("1_6m6qf")
 module = Array[PackedScene]([ExtResource("3_oxc0g"), ExtResource("4_0f72y"), ExtResource("3_7e6d8")])
 hud_scene = ExtResource("5_inick")
 
