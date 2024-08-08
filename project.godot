@@ -14,6 +14,10 @@ config/name="airplane-game"
 run/main_scene="res://assets/scene/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 ui_left={
