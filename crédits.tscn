@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://ql7d2oakpfwi"]
+
+[ext_resource type="Texture2D" uid="uid://fye8681xpx6d" path="res://Mock_Up_Credit_02.png" id="1_cgo8w"]
+[ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="2_oy3uu"]
+
+[node name="Crédits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MockUpCredit02" type="Sprite2D" parent="."]
+position = Vector2(576.111, 323.75)
+scale = Vector2(0.600463, 0.600463)
+texture = ExtResource("1_cgo8w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -253.0
+offset_right = -17.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_stretch_ratio = 1.09
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Retour" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 0.670588, 0.905882, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_oy3uu")
+theme_override_font_sizes/font_size = 50
+text = "Retour
+"
+flat = true
+alignment = 2
