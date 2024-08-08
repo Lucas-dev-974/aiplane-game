@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://bequugkc2akh6"]
+
+[ext_resource type="Texture2D" uid="uid://c6rm7uk1jp5hh" path="res://assets/mockup/spr_bg_losangeles.jpg" id="1_mjv0v"]
+[ext_resource type="Texture2D" uid="uid://db52tmis2twr1" path="res://assets/mockup/Mock_Up_Game_Over_02.webp" id="2_o8no1"]
+[ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="3_hnadc"]
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 1152.0
+offset_bottom = 504.0
+
+[node name="SprBgLosangeles" type="Sprite2D" parent="Control"]
+modulate = Color(1, 1, 1, 0.517647)
+position = Vector2(576, 250)
+scale = Vector2(0.60026, 0.462037)
+texture = ExtResource("1_mjv0v")
+
+[node name="MockUpGameOver02" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(2.09455, 2.09709)
+texture = ExtResource("2_o8no1")
+
+[node name="BoxContainer2" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -34.0
+offset_right = 121.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="BtnRestart" type="Button" parent="BoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 25
+text = "Recommencer"
+
+[node name="BtnCredit" type="Button" parent="BoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 25
+text = "Crédits
+"
+
+[node name="BtnExit" type="Button" parent="BoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 25
+text = "Quiter"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_top = 40.0
+offset_right = 138.5
+offset_bottom = 136.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="BoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 64
+text = "Félicitation 	"
+
+[node name="BoxContainer3" type="BoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -145.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+vertical = true
+
+[node name="LabelDoesUKnow" type="Label" parent="BoxContainer3"]
+clip_contents = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 20
+text = "Le saviez vous ?"
+horizontal_alignment = 1
+
+[node name="LabelTrueStory" type="Label" parent="BoxContainer3"]
+clip_contents = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hnadc")
+theme_override_font_sizes/font_size = 30
+text = "La flotte de FrenchBee est composé à 100% d'A350"
+horizontal_alignment = 1

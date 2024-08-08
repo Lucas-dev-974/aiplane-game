@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de24bii1eyofm"
-path="res://.godot/imported/Mock_Up_Tuto.webp-e19b0e88fccd5f8a97c57c39469a8e47.ctex"
+uid="uid://rh4yp4f3hj5x"
+path="res://.godot/imported/Mock_Up_Main_Menu_04.png-af47db81ce10d79f656ede4ed4f49211.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mock_Up_Tuto.webp"
-dest_files=["res://.godot/imported/Mock_Up_Tuto.webp-e19b0e88fccd5f8a97c57c39469a8e47.ctex"]
+source_file="res://assets/mockup/Mock_Up_Main_Menu_04.png"
+dest_files=["res://.godot/imported/Mock_Up_Main_Menu_04.png-af47db81ce10d79f656ede4ed4f49211.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cif4njsylpgt8"
-path="res://.godot/imported/Mock_Up_Game_Over.webp-79cde3f4d3ab3b9a6ad5796608c2f6b5.ctex"
+uid="uid://c6rm7uk1jp5hh"
+path="res://.godot/imported/spr_bg_losangeles.jpg-1ad618744efa34474e2cdd9c0674ac74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mock_Up_Game_Over.webp"
-dest_files=["res://.godot/imported/Mock_Up_Game_Over.webp-79cde3f4d3ab3b9a6ad5796608c2f6b5.ctex"]
+source_file="res://assets/mockup/spr_bg_losangeles.jpg"
+dest_files=["res://.godot/imported/spr_bg_losangeles.jpg-1ad618744efa34474e2cdd9c0674ac74.ctex"]
 
 [params]
 
