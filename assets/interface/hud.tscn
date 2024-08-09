@@ -14,33 +14,51 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54dsm")
 
-[node name="CadranFuel" type="Sprite2D" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="CadranFuel" type="Sprite2D" parent="BoxContainer"]
 position = Vector2(584, 535)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_woj6e")
 
-[node name="Aiguille" type="Node2D" parent="CadranFuel"]
+[node name="Aiguille" type="Node2D" parent="BoxContainer/CadranFuel"]
 position = Vector2(-3.3335, 110)
 rotation = 0.685914
 scale = Vector2(3.33333, 3.33333)
 
-[node name="SprAiguilleFuel(1)" type="Sprite2D" parent="CadranFuel/Aiguille"]
+[node name="SprAiguilleFuel(1)" type="Sprite2D" parent="BoxContainer/CadranFuel/Aiguille"]
 position = Vector2(0.102794, -34.1319)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_3c3qc")
 
-[node name="Score" type="Label" parent="."]
+[node name="Control" type="Control" parent="BoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Score" type="Label" parent="BoxContainer/Control"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -60.0
-offset_top = 27.0
-offset_right = 67.0
-offset_bottom = 88.0
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -28.5
+offset_right = 576.0
+offset_bottom = 28.5
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 100
 theme_override_fonts/font = ExtResource("4_ujhtl")
 theme_override_font_sizes/font_size = 56
 text = "Score
 "
 horizontal_alignment = 1
+vertical_alignment = 1

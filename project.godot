@@ -18,10 +18,6 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 Global="*res://assets/Scripts/Global.gd"
 
-[display]
-
-window/size/resizable=false
-
 [input]
 
 ui_left={
