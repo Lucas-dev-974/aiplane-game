@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjveaeqte25n4"
+path="res://.godot/imported/snd_whoosh_01 (1).mp3-a3e075d8aed9db50f786703ecbaf8d19.mp3str"
+
+[deps]
+
+source_file="res://assets/song/snd_whoosh_01 (1).mp3"
+dest_files=["res://.godot/imported/snd_whoosh_01 (1).mp3-a3e075d8aed9db50f786703ecbaf8d19.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

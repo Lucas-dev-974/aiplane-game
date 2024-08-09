@@ -32,20 +32,21 @@ func _ready():
 @export var target_rotation_right_end : Vector3
 
 var time_pressed = 0
-@export var duration: float
+@export var duration: float = 0.2
 
 func _physics_process(delta):
 	var tween = create_tween()
 	if Input.is_action_just_pressed("ui_right"):
-		time_pressed += delta * 10
-		move_column(1)
+		$WooshPlayer.play()
 		tween.tween_property(airplane, "rotation_degrees", target_rotation_left, duration)
 		tween.tween_property(airplane, "rotation_degrees", target_rotation_left_end, duration)
+		move_column(1)
 	elif Input.is_action_just_pressed("ui_left"):
-		move_column(-1)
-		time_pressed += delta * 10
+		$WooshPlayer.play()
+		
 		tween.tween_property(airplane, "rotation_degrees", target_rotation_right, duration)
 		tween.tween_property(airplane, "rotation_degrees", target_rotation_right_end, duration)
+		move_column(-1)
 	
 	
 	if Input.is_action_just_released("ui_right") || Input.is_action_just_released("ui_left"):

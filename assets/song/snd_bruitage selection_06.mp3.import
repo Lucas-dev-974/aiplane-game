@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0yx86ounqkyi"
+path="res://.godot/imported/snd_bruitage selection_06.mp3-50076bde1732d61b2b863ceab93cc40c.mp3str"
+
+[deps]
+
+source_file="res://assets/song/snd_bruitage selection_06.mp3"
+dest_files=["res://.godot/imported/snd_bruitage selection_06.mp3-50076bde1732d61b2b863ceab93cc40c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

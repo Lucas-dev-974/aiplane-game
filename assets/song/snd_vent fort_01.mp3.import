@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ucsn7mcawo7e"
+path="res://.godot/imported/snd_vent fort_01.mp3-032ec8aa850f82a58060489590dba3d5.mp3str"
+
+[deps]
+
+source_file="res://assets/song/snd_vent fort_01.mp3"
+dest_files=["res://.godot/imported/snd_vent fort_01.mp3-032ec8aa850f82a58060489590dba3d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

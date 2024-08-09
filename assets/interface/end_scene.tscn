@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bequugkc2akh6"]
+[gd_scene load_steps=3 format=3 uid="uid://bequugkc2akh6"]
 
-[ext_resource type="Texture2D" uid="uid://c6rm7uk1jp5hh" path="res://assets/mockup/spr_bg_losangeles.jpg" id="1_mjv0v"]
 [ext_resource type="Script" path="res://assets/Scripts/end_scene.gd" id="1_xt0ey"]
-[ext_resource type="Texture2D" uid="uid://db52tmis2twr1" path="res://assets/mockup/Mock_Up_Game_Over_02.webp" id="2_o8no1"]
 [ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="3_hnadc"]
 
 [node name="EndMenu" type="Control"]
@@ -14,22 +12,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xt0ey")
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -1.0
-offset_right = 1152.0
-offset_bottom = 504.0
-
-[node name="SprBgLosangeles" type="Sprite2D" parent="Control"]
-modulate = Color(1, 1, 1, 0.517647)
-position = Vector2(576, 250)
-scale = Vector2(0.60026, 0.462037)
-texture = ExtResource("1_mjv0v")
-
-[node name="MockUpGameOver02" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(2.09455, 2.09709)
-texture = ExtResource("2_o8no1")
+[node name="DestinationBackground" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.32549)
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BoxContainer2" type="VBoxContainer" parent="."]
 clip_contents = true
@@ -69,7 +60,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_hnadc")
 theme_override_font_sizes/font_size = 25
-text = "Quiter"
+text = "Quitter"
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 clip_contents = true
@@ -96,6 +87,7 @@ layout_mode = 2
 [node name="LabelScoreEnd" type="Label" parent="BoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Vous avez parcouru:"
+horizontal_alignment = 1
 
 [node name="ScoreEnd" type="Label" parent="BoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -105,7 +97,7 @@ layout_mode = 2
 
 [node name="LabelDestination" type="Label" parent="BoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "Vous ête arrivé à:"
+text = "Vous êtes arrivé à :"
 
 [node name="Destination" type="Label" parent="BoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -131,7 +123,7 @@ clip_contents = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_hnadc")
 theme_override_font_sizes/font_size = 20
-text = "Le saviez vous ?"
+text = "Le saviez-vous ?"
 horizontal_alignment = 1
 
 [node name="LabelTrueStory" type="Label" parent="BoxContainer3"]

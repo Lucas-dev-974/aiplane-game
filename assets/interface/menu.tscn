@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://qvk2ggmyuy8i"]
+[gd_scene load_steps=5 format=3 uid="uid://qvk2ggmyuy8i"]
 
 [ext_resource type="Script" path="res://assets/Scripts/menu.gd" id="1_07o2j"]
 [ext_resource type="Texture2D" uid="uid://rh4yp4f3hj5x" path="res://assets/mockup/Mock_Up_Main_Menu_04.png" id="2_j8f33"]
 [ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="3_6pklp"]
+[ext_resource type="AudioStream" uid="uid://darp1rxg8dnr" path="res://assets/song/snd_menu_01.mp3" id="4_r6rp2"]
 
 [node name="Menu" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,10 +15,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07o2j")
 
-[node name="MockUpMainMenu04" type="Sprite2D" parent="."]
-position = Vector2(576.889, 324.5)
-scale = Vector2(0.600926, 0.600926)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_j8f33")
+expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 clip_contents = true
@@ -64,6 +71,10 @@ text = "Sortir
 "
 flat = true
 alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_r6rp2")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Jouer" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Crédits" to="." method="_on_crédits_pressed"]

@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
+	$CloudPercutedSong.play()
 	on_percuted_cloud.emit()

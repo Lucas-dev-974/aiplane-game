@@ -2,6 +2,8 @@ extends Node3D
 
 
 @export var module: Array[PackedScene] = [] 
+@export var module_bonus: Array[PackedScene] = [] 
+
 @export var hud_scene: PackedScene
 var hud_instance: Node = null
 
@@ -12,6 +14,7 @@ var fuel = 4
 var rng = RandomNumberGenerator.new()
 
 var timer: Timer = null
+var timer_spawn_bonus_module: Timer = null
 
 func on_timer_timeout():
 	if move_speed != 0:
@@ -24,34 +27,43 @@ func initiate_score_timer():
 	timer.one_shot = false # Répéter à l'infini
 	timer.start()
 	timer.timeout.connect(on_timer_timeout)
+
+var spawn_bonus_module = false
+
+func on_timer_timeout_sawn_bonus():
+	spawn_bonus_module = true
+
+func initiate_module_bonus_timer():
+	timer_spawn_bonus_module = Timer.new()
+	timer_spawn_bonus_module.wait_time = 5 # Temps en secondes entre chaque déclenchement
+	timer_spawn_bonus_module.autostart = true # Démarre automatiquement le timer_spawn_bonus_module
+	timer_spawn_bonus_module.one_shot = false # Répéter à l'infini
+	timer_spawn_bonus_module.start()
+	timer_spawn_bonus_module.timeout.connect(on_timer_timeout_sawn_bonus)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.score = 0
-	
 	initiate_score_timer()
+	initiate_module_bonus_timer()
 	hud_instance = hud_scene.instantiate()
+	add_child(timer_spawn_bonus_module)
 	add_child(timer)
 	add_child(hud_instance)
+	get_tree().paused = true
+	
+
+	
+var started_game = false
+
+func startGame():
+	started_game = true
 	for n in amount:
 		if n >= 1:
 			spawnModule(n * offset)	
-		
-var last_move_speed: int = 0
 
-func _input(event):
-	# Vérifiez si la touche Échap a été pressée
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-		# Basculez l'état de pause du jeu
-		if move_speed != 0:
-			last_move_speed = move_speed
-			move_speed = 0
-			print("in pause")
-		else:
-			print("out pause")
-			move_speed = last_move_speed
-			
-	
+@export var last_move_speed: int = 0
+
 var palier: int = 500
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -82,7 +94,13 @@ func spawnModule(n):
 	
 func get_random_module():
 	rng.randomize()
+	var instance
 	var num = rng.randi_range(0, module.size() - 1)
-	var instance = module[num].instantiate()
+	var num_module_bonus = rng.randi_range(0, module_bonus .size() - 1)
+	if !spawn_bonus_module:
+		instance = module[num].instantiate()
+	else:
+		instance = module_bonus[num_module_bonus].instantiate()
+	spawn_bonus_module = false
 	return instance
 	

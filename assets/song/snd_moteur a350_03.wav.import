@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qnvafkj8faia"
+path="res://.godot/imported/snd_moteur a350_03.wav-04dd0c41d929eb457ce9a92327c354ac.sample"
+
+[deps]
+
+source_file="res://assets/song/snd_moteur a350_03.wav"
+dest_files=["res://.godot/imported/snd_moteur a350_03.wav-04dd0c41d929eb457ce9a92327c354ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
