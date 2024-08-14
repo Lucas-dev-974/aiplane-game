@@ -14,5 +14,16 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
+	$BonusSoundEffect.play()
 	on_percuted_bonus.emit()
-	print("percuted cloud")
+	await delay_action(0.1)
+
+# Coroutine qui attend le délai spécifié puis exécute l'action
+func delay_action(seconds: float) -> void:
+	# Attendre pendant le temps spécifié
+	await get_tree().create_timer(seconds).timeout
+	perform_action()
+
+# Fonction qui contient l'action à exécuter
+func perform_action() -> void:
+	queue_free()

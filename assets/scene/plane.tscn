@@ -11,7 +11,6 @@ radius = 0.274049
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpnws"]
 resource_name = "Blanc"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -217,6 +216,8 @@ albedo_texture = ExtResource("2_50cp6")
 script = ExtResource("1_td6ec")
 target_rotation_left = Vector3(0, 0, 10)
 target_rotation_right = Vector3(0, 0, -10)
+target_rotation_top = Vector3(-10, 0, 0)
+target_rotation_bottom = Vector3(10, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(5.425, 0, 0, 0, 0.0130722, 0.999915, 0, -0.999915, 0.0130722, 0, 0.321742, 0)

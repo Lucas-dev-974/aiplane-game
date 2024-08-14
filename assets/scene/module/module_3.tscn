@@ -11,23 +11,16 @@ data = PackedVector3Array(-0.0561, -0.0173, -0.3062, -0.0561, -0.0612, -0.2182, 
 script = ExtResource("1_jgebx")
 
 [node name="MshCloudA05" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.38532, 0, -1.44967, 0, 1.5, 0, 1.44967, 0, -0.38532, 0, 0, 5)
+transform = Transform3D(-0.256879, 0, -0.966444, 0, 1, 0, 0.966444, 0, -0.256879, 0, 0, -5)
 mesh = ExtResource("1_jpaad")
-skeleton = NodePath("../CollisionShape3D")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.38532, 0, -1.44967, 0, 1.5, 0, 1.44967, 0, -0.38532, 0, 0, 5)
-shape = SubResource("ConcavePolygonShape3D_fa2wn")
-
-[node name="MshCloudA04" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0279216, 0, 0.99961, 0, 1, 0, -0.99961, 0, 0.0279216, 0, 0, 0)
-mesh = ExtResource("1_jpaad")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.0279216, 0, 0.99961, 0, 1, 0, -0.99961, 0, 0.0279216, 0, 0, 0)
+transform = Transform3D(-0.256879, 0, -0.966444, 0, 1, 0, 0.966444, 0, -0.256879, 0, 0, -5)
 shape = SubResource("ConcavePolygonShape3D_fa2wn")
 
 [node name="CloudPercutedSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4xhsj")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

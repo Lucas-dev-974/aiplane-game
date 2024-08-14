@@ -17,7 +17,7 @@ var timer: Timer = null
 var timer_spawn_bonus_module: Timer = null
 
 func on_timer_timeout():
-	if move_speed != 0:
+	if move_speed != 0 && fuel > 0:
 		Global.score +=  fuel
 
 func initiate_score_timer():
@@ -61,12 +61,12 @@ func startGame():
 	for n in amount:
 		if n >= 1:
 			spawnModule(n * offset)	
-
-@export var last_move_speed: int = 0
+			spawn_top(n * offset)
 
 var palier: int = 500
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if fuel < 0:
+		fuel = 0
 	if fuel == 0:
 		get_tree().change_scene_to_file("res://assets/interface/end_scene.tscn")
 		return
@@ -86,21 +86,58 @@ func spawnModule(n):
 		return
 		
 	var instance = get_random_module()
-	
 	instance.connect("on_percuted_cloud", listened_percution)
 	instance.connect("on_percuted_bonus", listened_percution_bonus)
 	instance.position.x = n
 	add_child(instance)
+
+func spawn_top(n):
+	if fuel == 0 && move_speed == 0:
+		return
+	var instance_top = get_random_module_top()
+	instance_top.connect("on_percuted_cloud", listened_percution)
+	instance_top.connect("on_percuted_bonus", listened_percution_bonus)
+	instance_top.position.y = 3
+	instance_top.position.x = n 
+	add_child(instance_top)
+	
+var last_random = -1
+
+func generate_random(min, max):
+	rng.randomize()
+	var random = rng.randi_range(min, max)
+	if random == last_random:
+		random = generate_random(min, max)
+	return  random
 	
 func get_random_module():
 	rng.randomize()
 	var instance
-	var num = rng.randi_range(0, module.size() - 1)
-	var num_module_bonus = rng.randi_range(0, module_bonus .size() - 1)
+	var num = generate_random(0, module.size() - 1)
+	var num_module_bonus = generate_random(0, module_bonus .size() - 1)
+
+	last_random = num
+		
 	if !spawn_bonus_module:
 		instance = module[num].instantiate()
 	else:
 		instance = module_bonus[num_module_bonus].instantiate()
 	spawn_bonus_module = false
+	return instance
+
+func get_random_module_top():
+	rng.randomize()
+	var instance
+	var num = generate_random(0, module.size() - 1)
+	#var num_module_bonus = generate_random(0, module_bonus .size() - 1)
+
+	last_random = num
+		
+	instance = module[num].instantiate()
+	instance.position.y = 3
+	#if !spawn_bonus_module:
+	#else:
+		#instance = module_bonus[num_module_bonus].instantiate()
+	#spawn_bonus_module = false
 	return instance
 	
