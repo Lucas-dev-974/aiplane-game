@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2dvar1ybeji8"]
+
+[ext_resource type="Material" uid="uid://dedgj76pkr2ro" path="res://shader_outline.tres" id="1_i3pyu"]
+[ext_resource type="ArrayMesh" uid="uid://jnuewlbtp5xb" path="res://assets/object/msh_cloud_A_04.obj" id="2_qv2l5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_i3pyu")
+mesh = ExtResource("2_qv2l5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278183, 1.93284)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.346936, -0.535266, 0.770147, 0, 0.821149, 0.570714, -0.937889, -0.198001, 0.284886, 1.78156, 3.58083, 4.43694)
