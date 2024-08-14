@@ -14,35 +14,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54dsm")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="CadranFuel" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -284.0
+offset_bottom = -4.0
 grow_horizontal = 2
-grow_vertical = 2
-vertical = true
-
-[node name="CadranFuel" type="Sprite2D" parent="BoxContainer"]
-position = Vector2(584, 535)
-scale = Vector2(0.4, 0.4)
+grow_vertical = 0
 texture = ExtResource("2_woj6e")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Aiguille" type="Node2D" parent="BoxContainer/CadranFuel"]
-position = Vector2(-3.3335, 110)
-rotation = 0.685914
-scale = Vector2(3.33333, 3.33333)
-
-[node name="SprAiguilleFuel(1)" type="Sprite2D" parent="BoxContainer/CadranFuel/Aiguille"]
-position = Vector2(0.102794, -34.1319)
-scale = Vector2(0.45, 0.45)
+[node name="Aiguille" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -288.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("3_3c3qc")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Control" type="Control" parent="BoxContainer"]
+[node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 200.0
 
-[node name="Score" type="Label" parent="BoxContainer/Control"]
+[node name="Score" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

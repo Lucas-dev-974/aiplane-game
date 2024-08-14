@@ -10,14 +10,14 @@ func _ready() -> void:
 var auguille_degree: int = 38
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$BoxContainer/Control/Score.text = str(Global.score)
+	$Control/Score.text = str(Global.score)
 	if self.get_parent().fuel == 4:
-		$BoxContainer/CadranFuel/Aiguille.rotation_degrees = 38
+		$Aiguille.rotation_degrees = 38
 	if self.get_parent().fuel == 3:
-		$BoxContainer/CadranFuel/Aiguille.rotation_degrees  = 19
+		$Aiguille.rotation_degrees  = 19
 	if self.get_parent().fuel == 2:
-		$BoxContainer/CadranFuel/Aiguille.rotation_degrees  = 0
+		$Aiguille.rotation_degrees  = 0
 	if self.get_parent().fuel == 1:
-		$BoxContainer/CadranFuel/Aiguille.rotation_degrees  = -19
+		$Aiguille.rotation_degrees  = -19
 	if self.get_parent().fuel == 0:
-		$BoxContainer/CadranFuel/Aiguille.rotation_degrees  = -38
+		$Aiguille.rotation_degrees  = -38
