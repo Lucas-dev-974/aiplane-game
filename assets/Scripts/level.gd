@@ -52,27 +52,36 @@ func _ready() -> void:
 	add_child(hud_instance)
 	get_tree().paused = true
 	
-
-	
 var started_game = false
 
 func startGame():
 	started_game = true
 	for n in amount:
 		if n >= 1:
+			print("iteration n:", n)
 			spawnModule(n * offset)	
 			spawn_top(n * offset)
 
 var palier: int = 500
-func _process(delta: float) -> void:
+
+func haveFuel():
 	if fuel < 0:
 		fuel = 0
 	if fuel == 0:
-		get_tree().change_scene_to_file("res://assets/interface/end_scene.tscn")
-		return
+		return false
+	return true
+
+func inreasePlalier():
 	if Global.score >= palier:
 		move_speed += 10
 		palier += 500
+		
+		
+func _process(delta: float) -> void:
+	if !haveFuel():
+		get_tree().change_scene_to_file("res://assets/interface/end_scene.tscn")
+		return
+	inreasePlalier()
 
 func listened_percution():
 	fuel -= 1
@@ -82,39 +91,33 @@ func listened_percution_bonus():
 		fuel += 1
 	
 func spawnModule(n):
-	if fuel == 0 && move_speed == 0:
-		return
-		
 	var instance = get_random_module()
 	instance.connect("on_percuted_cloud", listened_percution)
-	instance.connect("on_percuted_bonus", listened_percution_bonus)
+	#instance.connect("on_percuted_bonus", listened_percution_bonus)
 	instance.position.x = n
 	add_child(instance)
 
 func spawn_top(n):
-	if fuel == 0 && move_speed == 0:
-		return
 	var instance_top = get_random_module_top()
 	instance_top.connect("on_percuted_cloud", listened_percution)
-	instance_top.connect("on_percuted_bonus", listened_percution_bonus)
 	instance_top.position.y = 3
 	instance_top.position.x = n 
 	add_child(instance_top)
 	
 var last_random = -1
 
-func generate_random(min, max):
+func GenerateRandomNumber(min, max):
 	rng.randomize()
 	var random = rng.randi_range(min, max)
 	if random == last_random:
-		random = generate_random(min, max)
+		random = GenerateRandomNumber(min, max)
 	return  random
 	
 func get_random_module():
 	rng.randomize()
 	var instance
-	var num = generate_random(0, module.size() - 1)
-	var num_module_bonus = generate_random(0, module_bonus .size() - 1)
+	var num = GenerateRandomNumber(0, module.size() - 1)
+	var num_module_bonus = GenerateRandomNumber(0, module_bonus .size() - 1)
 
 	last_random = num
 		
@@ -128,7 +131,7 @@ func get_random_module():
 func get_random_module_top():
 	rng.randomize()
 	var instance
-	var num = generate_random(0, module.size() - 1)
+	var num = GenerateRandomNumber(0, module.size() - 1)
 	last_random = num
 	instance = module[num].instantiate()
 	instance.position.y = 3

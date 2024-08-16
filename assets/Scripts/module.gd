@@ -8,13 +8,14 @@ var speed = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	speed = level.move_speed
-	position.x -= speed * delta
-	print("position y:", position.y)
-	
+	position.x -= speed * 0.016
+	print("id:", self.get_instance_id(), "\n position x:", position.x, "\n score:",  Global.score)
 	if position.x < -35: 	
 		if position.y == 3:
+			print("top spawn")
 			level.spawn_top(position.x + (level.amount * level.offset))
 		else:
+			print("bottom spawn")
 			level.spawnModule(position.x + (level.amount * level.offset))
 		queue_free()
 
