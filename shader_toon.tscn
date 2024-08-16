@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2dvar1ybeji8"]
+[gd_scene load_steps=5 format=3 uid="uid://cvgxqpw85a4ew"]
 
 [ext_resource type="Material" uid="uid://dedgj76pkr2ro" path="res://shader_outline.tres" id="1_i3pyu"]
+[ext_resource type="Material" uid="uid://dwls26ruutkvs" path="res://shader_toon_02.tres" id="1_n2x06"]
 [ext_resource type="ArrayMesh" uid="uid://jnuewlbtp5xb" path="res://assets/object/msh_cloud_A_04.obj" id="2_qv2l5"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_6omyv"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_i3pyu")
+transform = Transform3D(0.999949, -0.0101402, 0, 0.0101402, 0.999949, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+material_override = ExtResource("1_n2x06")
+material_overlay = ExtResource("1_i3pyu")
 mesh = ExtResource("2_qv2l5")
+surface_material_override/0 = ExtResource("1_n2x06")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278183, 1.93284)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.346936, -0.535266, 0.770147, 0, 0.821149, 0.570714, -0.937889, -0.198001, 0.284886, 1.78156, 3.58083, 4.43694)
+light_energy = 0.677
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_6omyv")
