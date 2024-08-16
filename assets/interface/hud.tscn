@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chiauv4ph27vk"]
+[gd_scene load_steps=6 format=3 uid="uid://chiauv4ph27vk"]
 
 [ext_resource type="Script" path="res://assets/Scripts/hud.gd" id="1_54dsm"]
 [ext_resource type="Texture2D" uid="uid://cf70h7w8raedc" path="res://assets/mockup/spr_cadran_fuel.webp" id="2_woj6e"]
 [ext_resource type="Texture2D" uid="uid://lu40eoia030p" path="res://assets/mockup/spr_aiguille_fuel (1).webp" id="3_3c3qc"]
+[ext_resource type="Script" path="res://assets/interface/aiguille.gd" id="4_ospuy"]
 [ext_resource type="FontFile" uid="uid://citphocjlmy8u" path="res://TradeGothicLTS.otf" id="4_ujhtl"]
 
 [node name="HUD" type="Control"]
@@ -20,8 +21,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -284.0
-offset_bottom = -4.0
+offset_top = -218.0
+offset_right = -2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_woj6e")
@@ -34,13 +36,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -288.0
-offset_bottom = -8.0
+offset_top = -218.0
+offset_right = -2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_3c3qc")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("4_ospuy")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 200)

@@ -129,15 +129,8 @@ func get_random_module_top():
 	rng.randomize()
 	var instance
 	var num = generate_random(0, module.size() - 1)
-	#var num_module_bonus = generate_random(0, module_bonus .size() - 1)
-
 	last_random = num
-		
 	instance = module[num].instantiate()
 	instance.position.y = 3
-	#if !spawn_bonus_module:
-	#else:
-		#instance = module_bonus[num_module_bonus].instantiate()
-	#spawn_bonus_module = false
 	return instance
 	

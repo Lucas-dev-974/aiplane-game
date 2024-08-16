@@ -8,6 +8,7 @@ func _ready() -> void:
 
 @export var aiguille_1_rotate: Vector2 = Vector2(38, 0)
 var auguille_degree: int = 38
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Control/Score.text = str(Global.score)
