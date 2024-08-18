@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cimonok1bs51q"]
+[gd_scene load_steps=6 format=3 uid="uid://cimonok1bs51q"]
 
 [ext_resource type="ArrayMesh" uid="uid://b2pt42hjlkluq" path="res://assets/object/msh_bonus_01.obj" id="1_mql2w"]
 [ext_resource type="Script" path="res://assets/Scripts/module_bonus.gd" id="1_tkjlm"]
+[ext_resource type="Material" uid="uid://c3oop7gmpagnm" path="res://shader_outline.tres" id="2_wg5vh"]
 [ext_resource type="AudioStream" uid="uid://c31inlg8l4ojm" path="res://assets/song/snd_bonus.mp3" id="3_m5m6t"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ul5xg"]
@@ -12,6 +13,7 @@ script = ExtResource("1_tkjlm")
 
 [node name="BonusRing" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
+material_override = ExtResource("2_wg5vh")
 mesh = ExtResource("1_mql2w")
 
 [node name="RingCollision" type="CollisionShape3D" parent="."]

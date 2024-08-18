@@ -12,7 +12,6 @@ func _input(event):
 			get_tree().paused = false
 			
 			if !started_game:
-				self.get_parent().startGame()
 				started_game = true
 		else:
 			$Control.visible = true

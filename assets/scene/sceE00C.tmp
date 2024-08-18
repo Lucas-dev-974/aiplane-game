@@ -34,7 +34,7 @@ module_bonus = Array[PackedScene]([ExtResource("3_7e6d8"), ExtResource("5_0xrx5"
 hud_scene = ExtResource("5_inick")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.712737, 0.0193893, -0.701164, 0.701432, -0.0197018, 0.712464, -1.50461e-09, -0.999618, -0.0276425, -73.9941, 48.1287, 0)
+transform = Transform3D(0.936299, -0.00970815, 0.35107, -0.351204, -0.0258816, 0.935941, 2.24118e-11, -0.999618, -0.0276425, 86.8843, 48.1287, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_0wvnv")]
 
@@ -44,6 +44,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.33145e-08, 0.304481, -0.952518, 5.87714e-09, 0.952518, 0.304481, 1, 7.59039e-09, -4.30473e-08, -19.215, 3, 0)
 script = ExtResource("11_r0ek8")
+target_rotation_top = Vector3(0, 6, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3h67j")

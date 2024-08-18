@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctqsbudiq5ywd"]
+[gd_scene load_steps=6 format=3 uid="uid://ctqsbudiq5ywd"]
 
 [ext_resource type="Script" path="res://assets/Scripts/module.gd" id="1_jgebx"]
 [ext_resource type="ArrayMesh" uid="uid://jnuewlbtp5xb" path="res://assets/object/msh_cloud_A_04.obj" id="1_jpaad"]
+[ext_resource type="Material" uid="uid://c3oop7gmpagnm" path="res://shader_outline.tres" id="2_tq55w"]
 [ext_resource type="AudioStream" uid="uid://cr6aenu0wr3ex" path="res://assets/song/snd_alarme_03.mp3" id="3_4xhsj"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fa2wn"]
@@ -12,6 +13,7 @@ script = ExtResource("1_jgebx")
 
 [node name="MshCloudA05" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.256879, 0, -0.966444, 0, 1, 0, 0.966444, 0, -0.256879, 0, 0, -5)
+material_override = ExtResource("2_tq55w")
 mesh = ExtResource("1_jpaad")
 skeleton = NodePath("")
 
@@ -23,4 +25,5 @@ shape = SubResource("ConcavePolygonShape3D_fa2wn")
 stream = ExtResource("3_4xhsj")
 volume_db = -5.0
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

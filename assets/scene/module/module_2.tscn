@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhjw6ng0bv5qm"]
+[gd_scene load_steps=6 format=3 uid="uid://bhjw6ng0bv5qm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/module.gd" id="1_lqyv8"]
+[ext_resource type="Material" uid="uid://c3oop7gmpagnm" path="res://shader_outline.tres" id="2_n17wa"]
 [ext_resource type="ArrayMesh" uid="uid://jnuewlbtp5xb" path="res://assets/object/msh_cloud_A_04.obj" id="2_o81lk"]
 [ext_resource type="AudioStream" uid="uid://cr6aenu0wr3ex" path="res://assets/song/snd_alarme_03.mp3" id="3_co684"]
 
@@ -12,6 +13,7 @@ script = ExtResource("1_lqyv8")
 
 [node name="MshCloudA04" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 5)
+material_override = ExtResource("2_n17wa")
 mesh = ExtResource("2_o81lk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -22,4 +24,5 @@ shape = SubResource("ConcavePolygonShape3D_wip3m")
 stream = ExtResource("3_co684")
 volume_db = -5.0
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

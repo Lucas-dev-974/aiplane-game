@@ -78,7 +78,6 @@ func _physics_process(delta):
 	# Déplacement vers la rangée cible
 	if global_transform.origin.y != rows[current_row_index]:
 		var target_position = rows[current_row_index]
-		print("target vertical position:", target_position)
 		global_transform.origin.y = lerp(global_transform.origin.y, float(target_position), column_change_speed * delta)
 
 func move_column(direction: int):
