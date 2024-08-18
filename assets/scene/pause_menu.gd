@@ -27,5 +27,4 @@ func _on_continue_button_pressed() -> void:
 	$Control.visible = false
 	get_tree().paused = false
 	if !started_game:
-		self.get_parent().startGame()
 		started_game = true

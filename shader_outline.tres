@@ -5,7 +5,7 @@
 [resource]
 render_priority = 1
 shader = ExtResource("2_2q4u3")
-shader_parameter/outline_width = 1.5
+shader_parameter/outline_width = 3.0
 shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/color_start = Color(0, 0, 1, 1)
 shader_parameter/color_end = Color(1, 0.5, 0, 1)
