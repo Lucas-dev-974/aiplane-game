@@ -1,11 +1,11 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c3oop7gmpagnm"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bnwtjd0i3xbvx"]
 
-[ext_resource type="Shader" path="res://shader_outline.gdshader" id="2_2q4u3"]
+[ext_resource type="Shader" path="res://shader_outline.gdshader" id="1_ope15"]
 
 [resource]
-render_priority = 1
-shader = ExtResource("2_2q4u3")
-shader_parameter/outline_width = 3.0
+render_priority = 2
+shader = ExtResource("1_ope15")
+shader_parameter/outline_width = 1.6
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/color_start = Color(0, 0, 1, 1)
-shader_parameter/color_end = Color(1, 0.5, 0, 1)
+shader_parameter/color_start = Color(0.680406, 0.89899, 0.996133, 1)
+shader_parameter/color_end = Color(1, 1, 1, 1)

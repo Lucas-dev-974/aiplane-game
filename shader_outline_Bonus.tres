@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://05gdpf364ayo"]
+
+[ext_resource type="Texture2D" uid="uid://cg3l66j8v2hik" path="res://assets/sprites/spr_wind_effect_03.png" id="1_2yl7o"]
+[ext_resource type="Shader" path="res://shader_outline.gdshader" id="2_k01ip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyk2k"]
+render_priority = 1
+blend_mode = 1
+cull_mode = 1
+albedo_texture = ExtResource("1_2yl7o")
+uv1_scale = Vector3(2.335, 2.335, 2.335)
+uv1_offset = Vector3(0, 28.79, 0)
+
+[resource]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_vyk2k")
+shader = ExtResource("2_k01ip")
+shader_parameter/outline_width = 3.3
+shader_parameter/outline_color = Color(0.293399, 0.862846, 1.15514e-06, 1)
+shader_parameter/color_start = Color(0, 0, 1, 0)
+shader_parameter/color_end = Color(0.375308, 0.771298, 1.54018e-06, 1)

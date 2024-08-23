@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cisl6l1oie74g"]
+[gd_scene load_steps=19 format=3 uid="uid://cisl6l1oie74g"]
 
 [ext_resource type="Script" path="res://assets/Scripts/level.gd" id="1_6m6qf"]
 [ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cmpbacpxuncg6" path="res://assets/scene/module/module_bonus_3.tscn" id="6_x4f70"]
 [ext_resource type="PackedScene" uid="uid://daask22lc0why" path="res://assets/interface/pause_menu.tscn" id="9_0wvnv"]
 [ext_resource type="Script" path="res://assets/Scripts/camera_3d.gd" id="11_r0ek8"]
+[ext_resource type="AudioStream" uid="uid://cr6aenu0wr3ex" path="res://assets/song/snd_alarme_03.mp3" id="14_5rje6"]
+[ext_resource type="AudioStream" uid="uid://ceghj1nvdjam4" path="res://assets/song/snd_whoosh+buff_05.mp3" id="15_1ik4y"]
 [ext_resource type="Texture2D" uid="uid://dkveehom2377x" path="res://assets/mockup/360_F_442735681_2SITMOOWwPdBdRO4lRYcf2kTJErDSPt7 (1).jpg" id="16_nn27w"]
 [ext_resource type="AudioStream" uid="uid://dxjj3dxkvc46y" path="res://assets/song/snd_moteur a350_03.mp3" id="18_6vpvb"]
 
@@ -52,3 +54,10 @@ environment = SubResource("Environment_3h67j")
 stream = ExtResource("18_6vpvb")
 volume_db = -10.0
 autoplay = true
+
+[node name="CloudPercutedSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5rje6")
+
+[node name="BonusSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_1ik4y")
+volume_db = -15.0
