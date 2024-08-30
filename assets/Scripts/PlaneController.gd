@@ -42,9 +42,10 @@ signal show_end_interface
 
 
 func _physics_process(delta):
-	if self.get_parent().fuel == 0:
+	if Global.fuel == 0:
 		pass
-		
+	
+	
 	var tween = create_tween()
 	if Input.is_action_just_pressed("ui_right"):
 		$WooshPlayer.play()

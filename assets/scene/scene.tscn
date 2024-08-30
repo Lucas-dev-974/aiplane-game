@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cisl6l1oie74g"]
+[gd_scene load_steps=20 format=3 uid="uid://cisl6l1oie74g"]
 
 [ext_resource type="Script" path="res://assets/Scripts/level.gd" id="1_6m6qf"]
 [ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/camera_3d.gd" id="11_r0ek8"]
 [ext_resource type="AudioStream" uid="uid://cr6aenu0wr3ex" path="res://assets/song/snd_alarme_03.mp3" id="14_5rje6"]
 [ext_resource type="AudioStream" uid="uid://ceghj1nvdjam4" path="res://assets/song/snd_whoosh+buff_05.mp3" id="15_1ik4y"]
+[ext_resource type="AudioStream" uid="uid://bugrcpgirv4dy" path="res://assets/song/snd_music in game disco_01.mp3" id="16_fiknv"]
 [ext_resource type="Texture2D" uid="uid://dkveehom2377x" path="res://assets/mockup/360_F_442735681_2SITMOOWwPdBdRO4lRYcf2kTJErDSPt7 (1).jpg" id="16_nn27w"]
 [ext_resource type="AudioStream" uid="uid://dxjj3dxkvc46y" path="res://assets/song/snd_moteur a350_03.mp3" id="18_6vpvb"]
 
@@ -24,10 +25,11 @@ sky_material = SubResource("PanoramaSkyMaterial_fmtea")
 
 [sub_resource type="Environment" id="Environment_3h67j"]
 background_mode = 2
-background_energy_multiplier = 0.8
+background_energy_multiplier = 0.9
 sky = SubResource("Sky_7xfjo")
 sky_rotation = Vector3(0, 2.90074, 0)
 reflected_light_source = 2
+tonemap_exposure = 1.09
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_6m6qf")
@@ -61,3 +63,7 @@ stream = ExtResource("14_5rje6")
 [node name="BonusSoundEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_1ik4y")
 volume_db = -15.0
+
+[node name="InGameSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_fiknv")
+autoplay = true

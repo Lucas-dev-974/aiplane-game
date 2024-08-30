@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 Global="*res://assets/Scripts/Global.gd"
+gmutils="*res://assets/Scripts/GameUtils.gd"
+TimersUtils_="*res://assets/Scripts/TimersUTils.gd"
 
 [input]
 

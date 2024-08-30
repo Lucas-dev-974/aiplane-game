@@ -22,16 +22,14 @@ func _ready() -> void:
 	for child in childs:
 		if  child != self:
 			if child.global_position == myPosition:
-				print(child.find_child('Cloud'))
 				queue_free()
 				
 				
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#var space_state = get_world_3d().direct_space_state
-	position.x -= level.move_speed * delta
+	position.x -= Global.move_speed * delta
 	if position.x < -30: 	
-		level.lastPositionX = position.x
+		#level.lastPositionX = position.x
 		queue_free()
 		return 
 	

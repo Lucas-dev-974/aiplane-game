@@ -7,7 +7,7 @@ var speed = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x -= level.move_speed * delta
+	position.x -= Global.move_speed * delta
 
 	if position.x < -30: 	
 		queue_free()

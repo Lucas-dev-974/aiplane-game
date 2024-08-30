@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.998371, 1.00368)
 script = ExtResource("1_xt0ey")
 
 [node name="DestinationBackground" type="TextureRect" parent="."]
@@ -88,7 +89,7 @@ layout_mode = 2
 
 [node name="LabelScoreEnd" type="Label" parent="BoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Vous avez parcouru:"
+text = "Score: "
 horizontal_alignment = 1
 
 [node name="ScoreEnd" type="Label" parent="BoxContainer/HBoxContainer"]
