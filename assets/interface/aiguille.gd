@@ -11,5 +11,3 @@ func _process(delta: float) -> void:
 	var layout = self.size
 	pivot_offset.x =  layout[0] / 2
 	pivot_offset.y =  layout[1] / 2 + 35
-	
-	print(pivot_offset)

@@ -11,14 +11,16 @@ var auguille_degree: int = 38
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$MSCadran/MSDisplay.text = str(Global.move_speed)
+	
 	$Control/Score.text = str(Global.score)
-	if self.get_parent().fuel == 4:
+	if Global.fuel == 4:
 		$Aiguille.rotation_degrees = 38
-	if self.get_parent().fuel == 3:
+	if Global.fuel == 3:
 		$Aiguille.rotation_degrees  = 19
-	if self.get_parent().fuel == 2:
+	if Global.fuel == 2:
 		$Aiguille.rotation_degrees  = 0
-	if self.get_parent().fuel == 1:
+	if Global.fuel == 1:
 		$Aiguille.rotation_degrees  = -19
-	if self.get_parent().fuel == 0:
+	if Global.fuel == 0:
 		$Aiguille.rotation_degrees  = -38

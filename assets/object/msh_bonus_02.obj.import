@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtgspygi6ccda"
+path="res://.godot/imported/msh_bonus_02.obj-8b4916a3e365c8bc8e5403c3a771b1dc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/msh_bonus_02.obj-8b4916a3e365c8bc8e5403c3a771b1dc.mesh"]
+
+source_file="res://assets/object/msh_bonus_02.obj"
+dest_files=["res://.godot/imported/msh_bonus_02.obj-8b4916a3e365c8bc8e5403c3a771b1dc.mesh", "res://.godot/imported/msh_bonus_02.obj-8b4916a3e365c8bc8e5403c3a771b1dc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -3,22 +3,40 @@ extends Node3D
 @onready var level = $".."
 
 signal on_percuted_cloud
-var speed = 0
+var firstDrop = false
 
+
+var shape = SphereShape3D.new() 
+var query = PhysicsShapeQueryParameters3D.new()
+var result 
+
+func _ready() -> void:
+	var myPosition = global_position
+	var parentChilds = self.get_parent().get_children()
+	
+	var childs = []
+	for child in parentChilds:
+		if child.is_class("Area3D"):
+			childs.append(child)
+			
+	for child in childs:
+		if  child != self:
+			if child.global_position == myPosition:
+				queue_free()
+				
+				
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	speed = level.move_speed
-	position.x -= speed * 0.016
-	print("id:", self.get_instance_id(), "\n position x:", position.x, "\n score:",  Global.score)
-	if position.x < -35: 	
-		if position.y == 3:
-			print("top spawn")
-			level.spawn_top(position.x + (level.amount * level.offset))
-		else:
-			print("bottom spawn")
-			level.spawnModule(position.x + (level.amount * level.offset))
+	position.x -= Global.move_speed * delta
+	if position.x < -30: 	
+		#level.lastPositionX = position.x
 		queue_free()
-
+		return 
+	
+		
 func _on_body_entered(body: Node3D) -> void:
-	$CloudPercutedSong.play()
+	var soundPlayer = get_parent().find_child("CloudPercutedSong")
+	soundPlayer.play()
 	on_percuted_cloud.emit()
+	$Cloud.visible = false
+	$Partcles_cloud.emitting = true

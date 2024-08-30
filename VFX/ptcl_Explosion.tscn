@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://baf86woetb8hw"]
+
+[ext_resource type="Material" uid="uid://bnwtjd0i3xbvx" path="res://shader_outline.tres" id="1_e1lcg"]
+
+[sub_resource type="Curve" id="Curve_6ly3j"]
+_data = [Vector2(0, 0), 0.0, 4.40342, 0, 0, Vector2(0.733826, 0.995575), 0.0, 0.0, 0, 0, Vector2(0.994455, 0.20354), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ewg44"]
+curve = SubResource("Curve_6ly3j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5tmrr"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_ewg44")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a60va"]
+next_pass = ExtResource("1_e1lcg")
+
+[sub_resource type="SphereMesh" id="SphereMesh_vp8ee"]
+material = SubResource("StandardMaterial3D_a60va")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.39
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5tmrr")
+draw_pass_1 = SubResource("SphereMesh_vp8ee")

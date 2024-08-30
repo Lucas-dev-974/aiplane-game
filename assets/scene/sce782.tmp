@@ -1,0 +1,57 @@
+[gd_scene load_steps=17 format=3 uid="uid://cisl6l1oie74g"]
+
+[ext_resource type="Script" path="res://assets/Scripts/level.gd" id="1_6m6qf"]
+[ext_resource type="PackedScene" uid="uid://b0rxnlpmldimn" path="res://assets/scene/plane.tscn" id="1_6xi6h"]
+[ext_resource type="PackedScene" uid="uid://dfx4wlnt3rg2r" path="res://assets/scene/module/module_1.tscn" id="2_e1usi"]
+[ext_resource type="PackedScene" uid="uid://c1tx2qxgmqm14" path="res://assets/scene/module/module_bonus.tscn" id="3_7e6d8"]
+[ext_resource type="PackedScene" uid="uid://bhjw6ng0bv5qm" path="res://assets/scene/module/module_2.tscn" id="4_0f72y"]
+[ext_resource type="PackedScene" uid="uid://ctqsbudiq5ywd" path="res://assets/scene/module/module_3.tscn" id="4_yc1ck"]
+[ext_resource type="PackedScene" uid="uid://cimonok1bs51q" path="res://assets/scene/module/module_bonus_1.tscn" id="5_0xrx5"]
+[ext_resource type="PackedScene" uid="uid://chiauv4ph27vk" path="res://assets/interface/hud.tscn" id="5_inick"]
+[ext_resource type="PackedScene" uid="uid://cmpbacpxuncg6" path="res://assets/scene/module/module_bonus_3.tscn" id="6_x4f70"]
+[ext_resource type="PackedScene" uid="uid://daask22lc0why" path="res://assets/interface/pause_menu.tscn" id="9_0wvnv"]
+[ext_resource type="Script" path="res://assets/Scripts/camera_3d.gd" id="11_r0ek8"]
+[ext_resource type="Texture2D" uid="uid://dkveehom2377x" path="res://assets/mockup/360_F_442735681_2SITMOOWwPdBdRO4lRYcf2kTJErDSPt7 (1).jpg" id="16_nn27w"]
+[ext_resource type="AudioStream" uid="uid://dxjj3dxkvc46y" path="res://assets/song/snd_moteur a350_03.mp3" id="18_6vpvb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fmtea"]
+panorama = ExtResource("16_nn27w")
+
+[sub_resource type="Sky" id="Sky_7xfjo"]
+sky_material = SubResource("PanoramaSkyMaterial_fmtea")
+
+[sub_resource type="Environment" id="Environment_3h67j"]
+background_mode = 2
+background_energy_multiplier = 0.8
+sky = SubResource("Sky_7xfjo")
+sky_rotation = Vector3(0, 2.90074, 0)
+reflected_light_source = 2
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6m6qf")
+module = Array[PackedScene]([ExtResource("2_e1usi"), ExtResource("4_0f72y"), ExtResource("4_yc1ck")])
+module_bonus = Array[PackedScene]([ExtResource("3_7e6d8"), ExtResource("5_0xrx5"), ExtResource("6_x4f70")])
+hud_scene = ExtResource("5_inick")
+move_speed = null
+spawnTopModule = null
+apparitionTimeModule = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999907, -0.000377266, 0.0136428, -0.0136481, -0.0276399, 0.999525, 0, -0.999618, -0.0276425, 86.8843, 48.1287, 0)
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_0wvnv")]
+
+[node name="Plane" parent="." instance=ExtResource("1_6xi6h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.33145e-08, 0.304481, -0.952518, 5.87714e-09, 0.952518, 0.304481, 1, 7.59039e-09, -4.30473e-08, -19.2145, 2.69024, 0)
+script = ExtResource("11_r0ek8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3h67j")
+
+[node name="MotorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_6vpvb")
+volume_db = -10.0
+autoplay = true

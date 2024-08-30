@@ -42,9 +42,10 @@ signal show_end_interface
 
 
 func _physics_process(delta):
-	if self.get_parent().fuel == 0:
+	if Global.fuel == 0:
 		pass
-		
+	
+	
 	var tween = create_tween()
 	if Input.is_action_just_pressed("ui_right"):
 		$WooshPlayer.play()
@@ -78,7 +79,6 @@ func _physics_process(delta):
 	# Déplacement vers la rangée cible
 	if global_transform.origin.y != rows[current_row_index]:
 		var target_position = rows[current_row_index]
-		print("target vertical position:", target_position)
 		global_transform.origin.y = lerp(global_transform.origin.y, float(target_position), column_change_speed * delta)
 
 func move_column(direction: int):
